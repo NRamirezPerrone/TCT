@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Chicken Route | SABEMOS DE POLLO</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&family=Space+Mono:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    <style>
+        :root {
+            /* Amarillo suave y moderno */
+            --color-primary: #FFD54F; /* Un tono pastel de amarillo/mostaza */
+            /* Negro profundo para contraste */
+            --color-secondary: #121212; 
+            --color-background: #FFFFFF; 
+            --color-light-bg: #F5F5F5; 
+            --header-height: 70px;
+        }
+
+        /* Estilos Generales y Reset */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif; /* Tipografía para el cuerpo */
+            line-height: 1.6;
+            background-color: var(--color-background);
+            color: var(--color-secondary);
+            scroll-behavior: smooth;
+        }
+
+        /* Tipografía y Títulos */
+        h1, h2, h3 {
+            font-family: 'Space Mono', monospace; /* Tipografía para el Hero y Títulos */
+            font-weight: 700;
+            margin-bottom: 0.5em;
+        }
+
+        h2 {
+            font-size: 2.5em;
+            text-align: center;
+            padding-top: var(--header-height);
+            margin-top: calc(-1 * var(--header-height));
+            margin-bottom: 1.5em;
+            color: var(--color-secondary);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        
+        .section {
+            padding: 100px 5%;
+            max-width: 1300px;
+            margin: 0 auto;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        /* Header Fijo */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: var(--header-height);
+            background-color: var(--color-primary);
+            color: var(--color-secondary);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 5%;
+            z-index: 1000;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .header-logo {
+            font-size: 1.4em;
+            font-family: 'Space Mono', monospace;
+            font-weight: 700;
+            text-decoration: none;
+            color: var(--color-secondary);
+            text-transform: uppercase;
+        }
+
+        .nav-menu ul {
+            list-style: none;
+            display: flex;
+        }
+
+        .nav-menu ul li a {
+            text-decoration: none;
+            color: var(--color-secondary);
+            padding: 10px 18px;
+            display: block;
+            font-weight: 700;
+            transition: background-color 0.3s ease, color 0.3s ease;
+            border-radius: 5px;
+            text-transform: uppercase;
+        }
+
+        .nav-menu ul li a:hover {
+            background-color: var(--color-secondary);
+            color: var(--color-primary);
+        }
+
+        /* HERO SECTION */
+        #inicio {
+            height: 100vh;
+            background-image: url('https://plazadepaloquemao.com/wp-content/uploads/2020/12/IMG_9716-1.jpg');
+            background-size: cover;
+            background-position: center 30%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: var(--color-background);
+            position: relative;
+            padding-top: var(--header-height);
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.65); 
+            backdrop-filter: blur(4px); 
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            padding: 40px 60px;
+            border: 5px solid var(--color-primary);
+            border-radius: 15px;
+            background-color: rgba(255, 255, 255, 0.05);
+            max-width: 90%;
+        }
+
+        .hero-content h1 {
+            /* Logo: Negro con sombra amarilla */
+            color: var(--color-secondary);
+            font-family: 'Space Mono', monospace;
+            font-weight: 700;
+            font-size: 10em;
+            line-height: 0.9;
+            margin: 0;
+            text-shadow: 6px 6px var(--color-primary), 
+                         -4px -4px rgba(0, 0, 0, 0.3); 
+            letter-spacing: 8px;
+            text-transform: uppercase;
+        }
+
+        .hero-content p {
+            font-family: 'Inter', sans-serif;
+            font-size: 2.2em;
+            font-weight: 300;
+            margin-top: 15px;
+            text-shadow: 1px 1px 2px var(--color-secondary);
+            color: var(--color-background); 
+        }
+        
+        /* SOBRE NOSOTROS & CONTACTO */
+        #contacto {
+            background-color: var(--color-light-bg);
+            text-align: center;
+            padding-bottom: 150px; 
+        }
+
+        .placeholder-text {
+            border: 2px solid var(--color-primary);
+            background-color: var(--color-background);
+            padding: 25px;
+            margin: 30px 0 50px 0;
+            color: var(--color-secondary);
+            font-family: 'Inter', sans-serif;
+            border-radius: 8px;
+            text-align: left;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+        }
+
+        .social-icons {
+            margin: 40px 0;
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+        }
+
+        .social-icons a {
+            color: var(--color-secondary);
+            font-size: 2.5em;
+            transition: color 0.3s ease, transform 0.3s ease;
+        }
+
+        .social-icons a:hover {
+            color: var(--color-primary);
+            transform: scale(1.2) rotate(5deg);
+        }
+
+        /* Google Maps */
+        .map-container {
+            width: 100%;
+            height: 450px;
+            border: 8px solid var(--color-primary);
+            border-radius: 12px;
+            overflow: hidden;
+            margin-top: 50px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .map-container iframe {
+            /* Hacemos que el iframe se ajuste al contenedor */
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        /* PRODUCTOS */
+        #productos {
+            background-color: var(--color-background);
+            padding-bottom: 80px;
+        }
+
+        .productos-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-top: 50px;
+        }
+
+        .producto-card {
+            background-color: var(--color-light-bg);
+            border: 1px solid #ddd;
+            border-left: 5px solid var(--color-primary); 
+            border-radius: 8px;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08);
+            padding: 30px;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .producto-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .producto-card h3 {
+            font-size: 1.5em;
+            margin-bottom: 20px;
+            color: var(--color-secondary);
+            border-bottom: 2px dashed #ddd;
+            padding-bottom: 10px;
+        }
+
+        .producto-card select, .producto-card input[type="number"] {
+            padding: 12px;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            margin-top: 8px;
+            font-size: 1em;
+            background-color: #fff;
+            transition: border-color 0.3s ease;
+        }
+
+        .whatsapp-button-container {
+            text-align: center;
+            margin-top: 80px;
+        }
+
+        .whatsapp-button {
+            display: inline-flex;
+            align-items: center;
+            background-color: #25D366;
+            color: var(--color-background);
+            border: none;
+            padding: 18px 35px;
+            font-size: 1.3em;
+            font-weight: 700;
+            border-radius: 35px;
+            cursor: pointer;
+            text-decoration: none;
+            transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 6px 12px rgba(37, 211, 102, 0.4);
+            text-transform: uppercase;
+        }
+
+        /* FOOTER Sencillo */
+        .footer {
+            background-color: var(--color-secondary);
+            color: var(--color-light-bg);
+            text-align: center;
+            padding: 25px 5%;
+            font-size: 0.9em;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 900px) {
+            .nav-menu ul {
+                display: none;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero-content h1 {
+                font-size: 5em;
+                letter-spacing: 2px;
+                text-shadow: 4px 4px var(--color-primary);
+            }
+
+            .hero-content p {
+                font-size: 1.6em;
+            }
+            
+            #contacto {
+                padding-bottom: 80px; 
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="header">
+        <a href="#inicio" class="header-logo">THE CHICKEN ROUTE</a>
+        <nav class="nav-menu">
+            <ul>
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#productos" class="scroll-link">Productos</a></li>
+                <li><a href="#contacto" class="scroll-link">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="inicio">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1>TCR</h1>
+            <p>SABEMOS DE POLLO</p>
+        </div>
+    </section>
+
+    <section id="productos" class="section">
+        <h2>🍗 Nuestros Productos</h2>
+        <div class="productos-grid">
+            
+            <div class="producto-card" data-product-name="Cajón de Pollo Entero">
+                <h3>Cajón de Pollo Entero</h3>
+                <label for="cajon-unidades">Seleccione Unidades (1-10):</label>
+                <input type="number" id="cajon-unidades" min="0" max="10" value="0" class="product-input" data-unit="unidades" onchange="validarInput(this)">
+            </div>
+
+            <div class="producto-card" data-product-name="Pata y Muslo">
+                <h3>Pata y Muslo</h3>
+                <label for="pata-muslo-peso">Seleccione Peso:</label>
+                <select id="pata-muslo-peso" class="product-select">
+                    <option value="0" data-price="0" selected>-- Seleccione Peso --</option>
+                    <option value="3 kg" data-price="5000">3 kg - $5000</option>
+                    <option value="5 kg" data-price="8000">5 kg - $8000</option>
+                    <option value="10 kg" data-price="15000">10 kg - $15000</option>
+                    <option value="20 kg" data-price="28000">20 kg - $28000</option>
+                </select>
+            </div>
+
+            <div class="producto-card" data-product-name="Milanesa de Pollo">
+                <h3>Milanesa de Pollo</h3>
+                <label for="milanesa-peso">Seleccione Peso:</label>
+                <select id="milanesa-peso" class="product-select">
+                    <option value="0" data-price="0" selected>-- Seleccione Peso --</option>
+                    <option value="3 kg" data-price="6000">3 kg - $6000</option>
+                    <option value="5 kg" data-price="10000">5 kg - $10000</option>
+                    <option value="10 kg" data-price="19000">10 kg - $19000</option>
+                    <option value="20 kg" data-price="36000">20 kg - $36000</option>
+                </select>
+            </div>
+
+            <div class="producto-card" data-product-name="Pechuga">
+                <h3>Pechuga</h3>
+                <label for="pechuga-peso">Seleccione Peso:</label>
+                <select id="pechuga-peso" class="product-select">
+                    <option value="0" data-price="0" selected>-- Seleccione Peso --</option>
+                    <option value="3 kg" data-price="7000">3 kg - $7000</option>
+                    <option value="5 kg" data-price="11500">5 kg - $11500</option>
+                    <option value="10 kg" data-price="22000">10 kg - $22000</option>
+                    <option value="20 kg" data-price="42000">20 kg - $42000</option>
+                </select>
+            </div>
+
+            <div class="producto-card" data-product-name="Alitas">
+                <h3>Alitas</h3>
+                <label for="alitas-peso">Seleccione Peso:</label>
+                <select id="alitas-peso" class="product-select">
+                    <option value="0" data-price="0" selected>-- Seleccione Peso --</option>
+                    <option value="3 kg" data-price="4500">3 kg - $4500</option>
+                    <option value="5 kg" data-price="7000">5 kg - $7000</option>
+                    <option value="10 kg" data-price="13000">10 kg - $13000</option>
+                    <option value="20 kg" data-price="25000">20 kg - $25000</option>
+                </select>
+            </div>
+
+        </div>
+
+        <div class="whatsapp-button-container">
+            <button class="whatsapp-button" onclick="generarMensajeWhatsApp()">
+                <i class="fab fa-whatsapp"></i> Realizar Pedido por WhatsApp
+            </button>
+        </div>
+    </section>
+
+    <section id="contacto" class="section">
+        <h2>📍 Contacto & Ubicación</h2>
+
+        <div class="placeholder-text">
+            <p><strong>Placeholder:</strong> Aquí se incluirá un párrafo informativo sobre <strong>The Chicken Route (TCR)</strong>, destacando su compromiso con la calidad y la frase "SABEMOS DE POLLO".</p>
+        </div>
+
+        <h3>Síguenos</h3>
+        <div class="social-icons">
+            <a href="#" target="_blank" title="Facebook"><i class="fab fa-facebook"></i></a>
+            <a href="#" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="https://wa.me/5491168570094" target="_blank" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+        </div>
+
+        <h3>Nuestra Ubicación</h3>
+        <p>Estamos aquí para servirte.</p>
+        <div class="map-container">
+            <iframe 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3141.096446150533!2d-58.737194224291734!3d-34.65153926002509!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bcbfd8e2c6368d%3A0xe357a1c2a0d5999a!2sPatagones%20%26%20Luis%20Piedra%20Buena%2C%20B1722%20Merlo%2C%20Provincia%20de%20Buenos%20Aires!5e1!3m2!1ses-419!2sar!4v1761797098637!5m2!1ses-419!2sar" 
+                width="100%" 
+                height="100%" 
+                style="border:0;" 
+                allowfullscreen="" 
+                loading="lazy" 
+                referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+            </div>
+        <p style="margin-top: 20px; font-style: italic; color: #777;">
+    
+        </p>
+    </section>
+    
+    <footer class="footer">
+        <p>© 2024 The Chicken Route (TCR). Todos los derechos reservados.</p>
+        <p>Distribuidora de Pollo de Calidad | <span style="color: var(--color-primary);">SABEMOS DE POLLO</span></p>
+    </footer>
+
+    <script>
+        /**
+         * Lógica de Scroll Suave para el Menú
+         */
+        document.querySelectorAll('a.scroll-link').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+
+                if (targetElement) {
+                    const headerHeight = document.querySelector('.header').offsetHeight;
+                    const targetPosition = targetElement.offsetTop - headerHeight;
+
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        /**
+         * Validación de input numérico para Cajón de Pollo
+         */
+        function validarInput(input) {
+            const min = parseInt(input.min);
+            const max = parseInt(input.max);
+            let valor = parseInt(input.value);
+
+            if (isNaN(valor) || valor < min) {
+                input.value = min;
+            } else if (valor > max) {
+                input.value = max;
+            }
+        }
+
+        /**
+         * Lógica de Generación de Mensaje de WhatsApp
+         */
+        function generarMensajeWhatsApp() {
+            const inputs = document.querySelectorAll('.product-input');
+            const selects = document.querySelectorAll('.product-select');
+            const itemsPedidos = [];
+            let totalProductos = 0;
+
+            // 1. Recorrer Inputs (Especialmente Cajón de Pollo)
+            inputs.forEach(input => {
+                const cantidad = parseInt(input.value);
+                if (cantidad > 0) {
+                    const card = input.closest('.producto-card');
+                    const nombre = card.getAttribute('data-product-name');
+                    itemsPedidos.push(`* ${cantidad} ${card.getAttribute('data-unit')} de ${nombre}`);
+                    totalProductos++;
+                }
+            });
+
+            // 2. Recorrer Selects (Otros Productos)
+            selects.forEach(select => {
+                const selectedOption = select.options[select.selectedIndex];
+                const valor = selectedOption.value;
+                const precioTexto = selectedOption.text.split(' - ')[1] || '';
+
+                if (valor !== "0") {
+                    const card = select.closest('.producto-card');
+                    const nombre = card.getAttribute('data-product-name');
+                    itemsPedidos.push(`* ${nombre} (${valor}) - Precio Ref: ${precioTexto}`);
+                    totalProductos++;
+                }
+            });
+
+            if (totalProductos === 0) {
+                alert("🛒 Por favor, selecciona al menos un producto para realizar tu pedido.");
+                return;
+            }
+
+            // 3. Armar el Mensaje Final
+            const encabezado = "Hola, quiero hacer un pedido a Distribuidora TCR:";
+            const cuerpoPedido = itemsPedidos.join('\n');
+            const mensajeCompleto = `${encabezado}\n\n${cuerpoPedido}\n\n¡Gracias!`;
+
+            // 4. Codificar el mensaje y generar el enlace
+            const mensajeCodificado = encodeURIComponent(mensajeCompleto);
+            const numeroWhatsApp = "5491168570094"; 
+            const urlWhatsApp = `https://wa.me/${numeroWhatsApp}?text=${mensajeCodificado}`;
+
+            // 5. Abrir WhatsApp
+            window.open(urlWhatsApp, '_blank');
+        }
+    </script>
+
+</body>
+</html>
